@@ -1,4 +1,8 @@
 <%@page language="java" import="java.util.*" %>
+<%@page import="com.google.appengine.api.users.User" %>
+<%@page import="com.google.appengine.api.users.UserService" %>
+<%@page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@page import="javax.servlet.http.*"%>
 <%
 String path = request.getContextPath();
 String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -18,6 +22,20 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 	
 	<h2>Thank you! Your confirmation number is</h2>
 	<%=request.getAttribute("confirm")%>
-
+	
+	<%
+     UserService userService = UserServiceFactory.getUserService();
+     if (!userService.isUserLoggedIn()) {
+     	 response.sendRedirect(userService.createLoginURL(request.getRequestURI()));
+     } 
+   	 else {  	
+   	 %>
+      Now you can (<a href="<%=userService.createLogoutURL("/")%>">log out</a>)
+      You can also (<a href="stationform">continue</a>)continue input another form
+   	<%
+     }
+    %>
+	
+	
 	</body>
 	</html>

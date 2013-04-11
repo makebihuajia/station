@@ -5,21 +5,21 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>StationForm</servlet-name>
-		<url-pattern>/stationform</url-pattern>
+		<url-pattern>/stationform/*</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>AdminControl</servlet-name>
-		<servlet-class>stationform.AdminController</servlet-class>
+		<servlet-name>get_station</servlet-name>
+		<servlet-class>stationform.GetStation</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>AdminControl</servlet-name>
-		<url-pattern>/admin</url-pattern>
+		<servlet-name>get_station</servlet-name>
+		<url-pattern>/get_station</url-pattern>
 	</servlet-mapping>
 	
 	
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>stationform</welcome-file>
 	</welcome-file-list>
  <servlet>
   <servlet-name>SystemServiceServlet</servlet-name>
