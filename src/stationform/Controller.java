@@ -23,6 +23,7 @@ import com.google.appengine.api.users.UserServiceFactory;
  * @author Yuxing
  * This is the main controller for the station form register
  * This is also the initial page
+ *
  */
 public class Controller extends HttpServlet{
 	private static final Logger logger = Logger.getLogger(Controller.class.getCanonicalName());
